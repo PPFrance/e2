@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+   
+<head>
+<title>Ad-poc</title>
+<style>
+    body {
+        font-family: Avenir, Helv, Sans;
+        font-weight: 200;
+    }
+    .red {
+        color: rgb(255, 100, 150);    
+    }
+    .blue {
+        color: rgb(150, 100, 255);
+    }
+    a {
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+
+  <h1>Ad-poc</h1>
+  <p><strong>An ad-hoc solution to an ad-poc problem</strong></p>
+  
+  <p>This very tiny, and very <em>very</em> ugly flask app translates from URLs extracted from Pocket with article IDs meaningful only to an individual user account, to the bare links they pointed to in the first place.</p>
+  <hr />
+  <p>Instructions:
+      <ol>
+          <li>Click <a href="/authstart" target="_blank">here</a> to authorize this app in Pocket. You may have to enter your pocket credentials. <p></p>
+              The redirect after logging-in/authorizing the app chez Pocket will fail. 
+          </li> 
+          <p></p>
+          <li><em>No matter, though. Because of the constraint of having no permanent URL and SSL certificate (this is after all a tiny prototype app made to address a very specific need) the standard oath2 mechanism for redirecting back to the app once authorization has been granted/denied has not been implemented. </em>
+              <p></p>
+              Therefore, please click <a href="/authend" target="_blank">here</a> once the first step is done. Doing so will call Pocket again to obtain the access token needed for subsequent calls to extract data from the Pocket API, and then display a simple form in which to paste one or more links of the form https://app.getpocket.com/read/1742064365, provided from your own Pocket account.
+          </li>
+      </ol>
+  </p>
+  
+      
+</body>
+</html>
