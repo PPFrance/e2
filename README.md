@@ -8,8 +8,8 @@ A tiny flask app to slightly hack the Pocket API.
 
 1. Execute: 
 ```
-cd ad-poc
-pip install requirements.txt
+cd adpoc
+pip install -r requirements.txt
 cd src
 python app.py &
 open http://127.0.0.1:5000/
