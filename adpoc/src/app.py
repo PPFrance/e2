@@ -17,6 +17,7 @@ from logic import gen_relevant_data
 import re
 
 
+
 REQUEST_TOKEN = 'GLOBAL!'
 ACCESS_TOKEN = 'GLOBAL!'
 #USER = 'GLOBAL!'
@@ -116,6 +117,45 @@ def pocketdecode():
         
         
     return s
+
+
+@app.route('/putinpocket', methods=['GET'])
+def pocketencode():
+    """
+    
+    """
+    
+    import bs4
+    bs = bs4.BeautifulSoup(open('/Users/PeterParkinson/Downloads/ril_export.html'))
+    
+    class Link:
+        def __init__(self, url, tags = ''):
+            self.url = url
+            self.tags = 'remi,' + tags
+            
+        def __str__(self):
+            return f'link: {self.url}, tags: {self.tags}'
+    
+    def linkGen(bs):
+        for l in bs.findAll('a', attrs={'href': re.compile("//")}):
+            link = Link(l.attrs['href'], l.attrs['tags'])
+            
+            print (f'about to yield: {link}', file=sys.stderr)
+            
+            yield link
+            
+    
+    from pocket import Pocket
+    pock = Pocket(access_token=ACCESS_TOKEN, consumer_key=CONSUMER_KEY)
+    
+    for link in linkGen(bs):
+        pock.bulk_add(url=link.url, tags=link.tags)
+        
+    pock.commit() 
+        
+        
+    return ''
+
 
 
 if __name__ == '__main__':
