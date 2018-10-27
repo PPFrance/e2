@@ -1,8 +1,15 @@
 # e2 repo
 
+
+
+
 ## Ad Poc
 
 A tiny flask app to slightly hack the Pocket API.
+
+* N.B. there's also a manually-executed even ad-hocker selenium WebDriver/Safari script, executed with python src/automated.py, which looks for POCKET_USERNAME and POCKET_PASSWORD in os.environ (so run with `$export POCKET_USERNAME=x && export POCKET_PASSWORD=y && python src/automated.py`), then, even more specifically, goes through the links in /Users/PeterParkinson/Downloads/ril_export-3.html (!) with bs4/beautifulsoup and adds each one to pocket via direct manipulation. Necessary since Pocket seems to have blocked my access to their API!.
+
+
 
 ### Run like this:
 
