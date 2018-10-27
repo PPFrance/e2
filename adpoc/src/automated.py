@@ -3,12 +3,8 @@ from selenium import webdriver
 
 import os
 import time
-
-
-
-
-os.environ['POCKET_USERNAME'] = 'peterparkinsonfrance@gmail.com'
-os.environ['POCKET_PASSWORD'] = 'pocketkrakow'
+import re
+import sys
 
 import bs4
 
